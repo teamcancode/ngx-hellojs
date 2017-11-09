@@ -7,13 +7,13 @@ This module help you to use [hellojs library](https://adodson.com/hello.js) as s
 How to use:
 -------------
 ### Installation:
-```
+```html
 npm install ngx-hellojs
 ```
 
 ### Import library:
 Edit .angular-cli.json
-```
+```html
 {
   //...
   "apps": [
@@ -32,7 +32,7 @@ Edit .angular-cli.json
     
 ### Import service:
 Edit in `src/app/app.module.ts`:
-```
+```typescript
 //...
 import { HellojsService } from 'ngx-hellojs';
 
@@ -48,13 +48,13 @@ export class AppModule { }
 ```
 
 And call in component:
-```
+```typescript
 constructor(private _hellojsService: HellojsService) {
 }
 ```
 
 ### Init library
-```
+```typescript
 this._hellojsService.init({
   facebook: '<your-app-id>',
 });
@@ -64,7 +64,7 @@ this._hellojsService.init({
 ```
 
 ### Login
-```
+```typescript
 this._hellojsService.login('facebook', {
   scope: 'friends, photos, publish'
 }).subscribe(data => {}, error => {});
@@ -76,7 +76,7 @@ this._hellojsService.login('facebook', {
 ```
 
 ### Logout
-```
+```typescript
 this._hellojsService.logout('facebook').subscribe(data => {}, error => {});
  
 //same with:
@@ -84,7 +84,7 @@ this._hellojsService.logout('facebook').subscribe(data => {}, error => {});
 ```
 
 ### Get auth response
-```
+```typescript
 const fbResult = this._hellojsService.getAuthResponse('facebook');
  
 //same with:
@@ -92,14 +92,14 @@ const fbResult = this._hellojsService.getAuthResponse('facebook');
 ```
 
 ### Call api
-```
+```typescript
 this._hellojsService.api('facebook', 'me').subscribe(data => {}, error => {});
  
 //same with:
 //hello('facebook').api('me').then(function(data) {}, function(error) {});
 ```
 
-```
+```typescript
 this._hellojsService.api('facebook', 'me/friends', null, {limit: 1}).subscribe(data => {
 }, error => {
 });
@@ -111,7 +111,7 @@ this._hellojsService.api('facebook', 'me/friends', null, {limit: 1}).subscribe(d
 ```
 
 ### On / Off
-```
+```typescript
 messageAfterLogin = () => {
     console.log('Login successfully');
 }
