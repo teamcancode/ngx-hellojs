@@ -1,10 +1,29 @@
 {
   "name": "ngx-hellojs",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Use hellojs with Angular5~ (https://adodson.com/hello.js/)",
   "main": "dist/publish.js",
   "types": "dist/publish.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamcancode/ngx-hellojs"
+  },
+  "keywords": [
+    "hellojs",
+    "hello.js",
+    "Angular 4",
+    "Angular 5",
+    "Team Can Code",
+    "ngx-hellojs",
+    "ngxhellojs",
+    "ngx hellojs"
+  ],
+  "author": "TeamCanCode <teamcancode@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teamcancode/ngx-hellojs/issues"
+  },
+  "homepage": "https://github.com/teamcancode/ngx-hellojs",
   "scripts": {
     "prepublish": "tsc -p publish-tsconfig.json",
     "ng": "ng",
