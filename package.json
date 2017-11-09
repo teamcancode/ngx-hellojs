@@ -1,6 +1,6 @@
 {
   "name": "ngx-hellojs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Use hellojs with Angular5~ (https://adodson.com/hello.js/)",
   "main": "dist/publish.js",
   "types": "dist/publish.d.ts",
