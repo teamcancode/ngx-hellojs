@@ -1,27 +1,129 @@
-# NgxHellojs
+# TCC Ng5 Hellojs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+This module is used for [Angular 5](https://angular.io/).  
+This module help you to use [hellojs library](https://adodson.com/hello.js) as service.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+How to use:
+-------------
+### Installation:
+```
+npm install ngx-hellojs
+```
 
-## Code scaffolding
+### Import library:
+Edit .angular-cli.json
+```
+{
+  //...
+  "apps": [
+    {
+      //...
+      "scripts": [
+        //...
+        "../node_modules/hellojs/dist/hello.all.min.js"
+      ],
+      //...
+    }
+  ],
+  //...
+}
+```
+    
+### Import service:
+Edit in `src/app/app.module.ts`:
+```
+//...
+import { HellojsService } from 'ngx-hellojs';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@NgModule({
+  //...
+  providers: [
+    //...
+    HellojsService,
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-## Build
+And call in component:
+```
+constructor(private _hellojsService: HellojsService) {
+}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Init library
+```
+this._hellojsService.init({
+  facebook: '<your-app-id>',
+});
+ 
+//same with:
+//hello.init({facebook: '<your-app-id>'});
+```
 
-## Running unit tests
+### Login
+```
+this._hellojsService.login('facebook', {
+  scope: 'friends, photos, publish'
+}).subscribe(data => {}, error => {});
+ 
+//same with:
+//hello('facebook').login({
+//  scope: 'friends, photos, publish'
+//}).then(function(data) {}, function(error) {});
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Logout
+```
+this._hellojsService.logout('facebook').subscribe(data => {}, error => {});
+ 
+//same with:
+//hello('facebook').logout().then(function(data) {}, function(error) {});
+```
 
-## Running end-to-end tests
+### Get auth response
+```
+const fbResult = this._hellojsService.getAuthResponse('facebook');
+ 
+//same with:
+//var fbResult = hello('facebook').getAuthResponse();
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Call api
+```
+this._hellojsService.api('facebook', 'me').subscribe(data => {}, error => {});
+ 
+//same with:
+//hello('facebook').api('me').then(function(data) {}, function(error) {});
+```
 
-## Further help
+```
+this._hellojsService.api('facebook', 'me/friends', null, {limit: 1}).subscribe(data => {
+}, error => {
+});
+ 
+//same with:
+//hello('facebook').api('me/friends', {limit: 1}).then(function(data) {
+//}, function(error) {
+//});
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### On / Off
+```
+messageAfterLogin = () => {
+    console.log('Login successfully');
+}
+
+this._hellojsService.on('auth.login', this.messageAfterLogin);
+this._hellojsService.off('auth.login', this.messageAfterLogin);
+ 
+//same with:
+//var messageAfterLogin = function () {
+//  console.log('Login successfully');
+//};
+//
+//hello.on('auth.login', messageAfterLogin);
+//hello.off('auth.login', messageAfterLogin);
+```
