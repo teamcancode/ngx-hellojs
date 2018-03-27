@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { HellojsService } from './services/hellojs.service';
+import {Component} from '@angular/core';
+import {HellojsService} from './services/hellojs.service';
 
 declare const hello;
 
@@ -14,7 +14,7 @@ export class AppComponent {
 
   messageAfterLogin = () => {
     console.log(this.loginSuccessfullyMessage);
-  }
+  };
 
   constructor(private _hellojsService: HellojsService) {
     this._hellojsService.init({

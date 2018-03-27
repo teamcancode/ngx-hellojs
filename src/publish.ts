@@ -1,1 +1,1 @@
-export { HellojsService } from './app/services/hellojs.service';
+export {HellojsService} from './app/services/hellojs.service';
