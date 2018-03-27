@@ -1,7 +1,6 @@
-import {Component} from '@angular/core';
-import {HellojsService} from './services/hellojs.service';
-
-declare const hello;
+import { Component } from '@angular/core';
+import { HellojsService } from './services/hellojs.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +17,7 @@ export class AppComponent {
 
   constructor(private _hellojsService: HellojsService) {
     this._hellojsService.init({
-      facebook: '1893680748053241',
+      facebook: environment.facebookAppId,
     });
 
     this.initMessageAfterLogin();

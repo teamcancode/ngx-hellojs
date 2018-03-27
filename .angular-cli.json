@@ -22,7 +22,7 @@
         "styles.scss"
       ],
       "scripts": [
-        "../node_modules/hellojs/dist/hello.all.min.js"
+        "../node_modules/hellojs/dist/hello.all.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
