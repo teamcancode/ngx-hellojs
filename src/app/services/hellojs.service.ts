@@ -7,8 +7,8 @@ declare const hello;
 export class HellojsService {
 
   // noinspection JSMethodCanBeStatic
-  init(configs: {}) {
-    hello.init(configs);
+  init(configs: {}, options?: {}) {
+    hello.init(configs, options);
   }
 
   // noinspection JSMethodCanBeStatic
