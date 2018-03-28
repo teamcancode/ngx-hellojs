@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HellojsService } from '../../services/hellojs.service';
 
 @Component({
-  selector: 'app-hello-facebook',
+  selector: 'tcc-hello-facebook',
   templateUrl: './hello-facebook.component.html',
   styleUrls: ['./hello-facebook.component.scss']
 })

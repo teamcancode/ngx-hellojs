@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { HellojsService } from './services/hellojs.service';
 import { environment } from '../environments/environment';
 
-declare const hello;
-
 @Component({
-  selector: 'app-root',
+  selector: 'tcc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

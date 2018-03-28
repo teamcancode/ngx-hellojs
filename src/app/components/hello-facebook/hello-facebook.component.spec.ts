@@ -8,9 +8,9 @@ describe('HelloFacebookComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HelloFacebookComponent ]
-    })
-    .compileComponents();
+             declarations: [HelloFacebookComponent]
+           })
+           .compileComponents();
   }));
 
   beforeEach(() => {
