@@ -1,1 +1,1 @@
-export { HellojsService } from './app/services/hellojs.service';
+export { NgxHellojsModule } from './app/shared/ngx-hellojs.module';

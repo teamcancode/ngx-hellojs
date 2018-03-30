@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { HellojsService } from '../../services/hellojs.service';
+import { NgxHellojsService } from '../../shared/services/ngx-hellojs.service';
+import { NgxHellojsResponseEntity } from '../../shared/entities/ngx-hellojs-response.entity';
+import { NgxHellojsErrorEntity } from '../../shared/entities/ngx-hellojs-error.entity';
 
 @Component({
   selector: 'tcc-hello-facebook',
@@ -8,62 +10,64 @@ import { HellojsService } from '../../services/hellojs.service';
 })
 export class HelloFacebookComponent {
 
+  protected _network = 'facebook';
   loginSuccessfullyMessage = 'Login successfully';
 
   messageAfterLogin = () => {
     console.log(this.loginSuccessfullyMessage);
   };
 
-  constructor(private _hellojsService: HellojsService) {
+  constructor(private _ngxHellojsService: NgxHellojsService) {
     this.initMessageAfterLogin();
   }
 
-  login() {
-    this._hellojsService.login('facebook', {
-      scope: 'friends, photos, publish',
-    }).subscribe((data) => {
-      console.log('data', data);
-    }, (error) => {
-      console.log('error', error);
-    });
+  // noinspection JSMethodCanBeStatic
+  loginSuccessfullyAction(response: NgxHellojsResponseEntity) {
+    console.log('Login successfully:', response);
   }
 
-  logout() {
-    this._hellojsService.logout('facebook').subscribe((data) => {
-      console.log('data', data);
-    }, (error) => {
-      console.log('error', error);
-    });
+  // noinspection JSMethodCanBeStatic
+  loginFailedAction(error: NgxHellojsErrorEntity) {
+    console.log('Login failed:', error);
+  }
+
+  // noinspection JSMethodCanBeStatic
+  logoutSuccessfullyAction(response: NgxHellojsResponseEntity) {
+    console.log('Logout successfully:', response);
+  }
+
+  // noinspection JSMethodCanBeStatic
+  logoutFailedAction(error: NgxHellojsErrorEntity) {
+    console.log('Logout failed:', error);
   }
 
   getAuthResponse() {
-    const result = this._hellojsService.getAuthResponse('facebook');
-
+    const result = this._ngxHellojsService.getAuthResponse(this._network);
     console.log(result);
   }
 
   getMyInfo() {
-    this._hellojsService.api('facebook', 'me').subscribe((data) => {
-      console.log('data', data);
+    this._ngxHellojsService.api(this._network, 'me').subscribe(data => {
+      console.log('My info:', data);
     }, (error) => {
-      console.log('error', error);
+      console.log('My info error:', error);
     });
   }
 
   getFriendList() {
-    this._hellojsService.api('facebook', 'me/friends', null, {limit: 1}).subscribe((data) => {
-      console.log('data', data);
+    this._ngxHellojsService.api(this._network, 'me/friends', null, {limit: 1}).subscribe((data) => {
+      console.log('Friend list:', data);
     }, (error) => {
-      console.log('error', error);
+      console.log('Friend list error:', error);
     });
   }
 
   initMessageAfterLogin() {
-    this._hellojsService.on('auth.login', this.messageAfterLogin);
+    this._ngxHellojsService.on('auth.login', this.messageAfterLogin);
   }
 
   removeMessageAfterLogin() {
-    this._hellojsService.off('auth.login', this.messageAfterLogin);
+    this._ngxHellojsService.off('auth.login', this.messageAfterLogin);
   }
 
 }
