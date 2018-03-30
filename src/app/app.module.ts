@@ -4,11 +4,19 @@ import { HelloFacebookComponent } from './components/hello-facebook/hello-facebo
 import { AppComponent } from './app.component';
 import { NgxHellojsModule } from './shared/ngx-hellojs.module';
 import { environment } from '../environments/environment';
+import { HelloGoogleComponent } from './components/hello-google/hello-google.component';
+import { OtherComponent } from './components/other/other.component';
+import { HelloWindowsComponent } from './components/hello-windows/hello-windows.component';
+import { HelloTwitterComponent } from './components/hello-twitter/hello-twitter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloFacebookComponent,
+    HelloGoogleComponent,
+    HelloWindowsComponent,
+    OtherComponent,
+    HelloTwitterComponent,
   ],
   imports: [
     BrowserModule,

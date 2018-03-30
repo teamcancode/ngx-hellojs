@@ -1,12 +1,11 @@
 <fieldset>
-  <legend>Facebook:</legend>
-  <p tccLoginHellojs="facebook"
+  <legend>Windows:</legend>
+  <p tccLoginHellojs="windows"
      (successEvent)="loginSuccessfullyAction($event)"
-     (errorEvent)="loginFailedAction($event)">Login facebook</p>
+     (errorEvent)="loginFailedAction($event)">Login windows</p>
   <p><a (click)="getAuthResponse()">Auth Response</a></p>
   <p><a (click)="getMyInfo()">My info</a></p>
-  <p><a (click)="getFriendList()">Friend list</a></p>
-  <p tccLogoutHellojs="facebook"
+  <p tccLogoutHellojs="windows"
      (successEvent)="logoutSuccessfullyAction($event)"
      (errorEvent)="logoutFailedAction($event)">Logout</p>
 </fieldset>

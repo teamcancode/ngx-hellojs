@@ -3,14 +3,14 @@ import { NgxHellojsService } from '../../shared/services/ngx-hellojs.service';
 import { BaseHelloComponent } from '../base/base-hello.component';
 
 @Component({
-  selector: 'tcc-hello-facebook',
-  templateUrl: './hello-facebook.component.html',
-  styleUrls: ['./hello-facebook.component.scss']
+  selector: 'tcc-hello-google',
+  templateUrl: './hello-google.component.html',
+  styleUrls: ['./hello-google.component.scss']
 })
-export class HelloFacebookComponent extends BaseHelloComponent {
+export class HelloGoogleComponent extends BaseHelloComponent {
 
   // noinspection JSUnusedGlobalSymbols
-  protected _network = 'facebook';
+  protected _network = 'google';
 
   constructor(ngxHellojsService: NgxHellojsService) {
     super(ngxHellojsService);

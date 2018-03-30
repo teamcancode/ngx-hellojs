@@ -21,7 +21,7 @@ export class NgxHellojsService {
   }
 
   // noinspection JSMethodCanBeStatic
-  getAuthResponse(network: string): Object {
+  getAuthResponse(network: string): {} {
     return hello(network).getAuthResponse();
   }
 
