@@ -34,58 +34,75 @@ Edit .angular-cli.json
 Edit in `src/app/app.module.ts`:
 ```typescript
 //...
-import { HellojsService } from 'ngx-hellojs';
+import { NgxHellojsModule } from 'ngx-hellojs';
 
 @NgModule({
   //...
-  providers: [
+  imports: [
     //...
-    HellojsService,
+    NgxHellojsModule.forRoot({
+      facebook: <facebook-app-id>,
+      google: <google-app-id>,
+      windows: <windows-app-id>,
+      twitter: <twitter-app-id>,
+    }, {
+      scope: 'friends, photos, publish'
+    }),
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+//same with:
+//hello.init({facebook: '<your-app-id>'}, {scope: 'friends, photos, publish'});
 ```
 
 And call in component:
 ```typescript
-constructor(private _hellojsService: HellojsService) {
+import { NgxHellojsService } from 'ngx-zalo/dist/app/shared/services/ngx-hellojs.service';
+
+constructor(private _ngxHellojsService: NgxHellojsService) {
 }
 ```
 
-### Init library
-```typescript
-this._hellojsService.init({
-  facebook: '<your-app-id>',
-});
- 
-//same with:
-//hello.init({facebook: '<your-app-id>'});
+### Login
+```html
+<!-- Using directive -->
+<p tccLoginHellojs="facebook"
+   (successEvent)="loginSuccessfullyAction($event)"
+   (errorEvent)="loginFailedAction($event)">Login facebook</p>
 ```
 
-### Login
 ```typescript
-this._hellojsService.login('facebook', {
-  scope: 'friends, photos, publish'
-}).subscribe(data => {}, error => {});
+this._ngxHellojsService
+    .login('facebook', {scope: 'friends, photos, publish'})
+    .subscribe(data => {}, error => {});
  
 //same with:
-//hello('facebook').login({
-//  scope: 'friends, photos, publish'
-//}).then(function(data) {}, function(error) {});
+//hello('facebook').login({scope: 'friends, photos, publish'})
+                   .then(function(data) {}, function(error) {});
 ```
 
 ### Logout
+```html
+<!-- Using directive -->
+<p tccLogoutHellojs="facebook"
+   (successEvent)="logoutSuccessfullyAction($event)"
+   (errorEvent)="logoutFailedAction($event)">Logout</p>
+```
+
 ```typescript
-this._hellojsService.logout('facebook').subscribe(data => {}, error => {});
+this._ngxHellojsService.logout('facebook')
+                       .subscribe(data => {}, error => {});
  
 //same with:
-//hello('facebook').logout().then(function(data) {}, function(error) {});
+//hello('facebook').logout()
+                   .then(function(data) {}, function(error) {});
 ```
 
 ### Get auth response
 ```typescript
-const fbResult = this._hellojsService.getAuthResponse('facebook');
+const fbResult = this._ngxHellojsService.getAuthResponse('facebook');
  
 //same with:
 //var fbResult = hello('facebook').getAuthResponse();
@@ -93,21 +110,21 @@ const fbResult = this._hellojsService.getAuthResponse('facebook');
 
 ### Call api
 ```typescript
-this._hellojsService.api('facebook', 'me').subscribe(data => {}, error => {});
+this._ngxHellojsService.api('facebook', 'me')
+                       .subscribe(data => {}, error => {});
  
 //same with:
-//hello('facebook').api('me').then(function(data) {}, function(error) {});
+//hello('facebook').api('me')
+//                 .then(function(data) {}, function(error) {});
 ```
 
 ```typescript
-this._hellojsService.api('facebook', 'me/friends', null, {limit: 1}).subscribe(data => {
-}, error => {
-});
+this._ngxHellojsService.api('facebook', 'me/friends', null, {limit: 1})
+                       .subscribe(data => {}, error => {});
  
 //same with:
-//hello('facebook').api('me/friends', {limit: 1}).then(function(data) {
-//}, function(error) {
-//});
+//hello('facebook').api('me/friends', {limit: 1})
+//                 .then(function(data) {}, function(error) {});
 ```
 
 ### On / Off
@@ -116,8 +133,8 @@ messageAfterLogin = () => {
     console.log('Login successfully');
 }
 
-this._hellojsService.on('auth.login', this.messageAfterLogin);
-this._hellojsService.off('auth.login', this.messageAfterLogin);
+this._ngxHellojsService.on('auth.login', this.messageAfterLogin);
+this._ngxHellojsService.off('auth.login', this.messageAfterLogin);
  
 //same with:
 //var messageAfterLogin = function () {
