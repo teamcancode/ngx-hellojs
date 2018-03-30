@@ -1,12 +1,12 @@
 <fieldset>
   <legend>Google:</legend>
-  <p tccLoginHellojs="google"
+  <p ngxLoginHellojs="google"
      (successEvent)="loginSuccessfullyAction($event)"
      (errorEvent)="loginFailedAction($event)">Login google</p>
   <p><a (click)="getAuthResponse()">Auth Response</a></p>
   <p><a (click)="getMyInfo()">My info</a></p>
   <p><a (click)="getFriendList()">Friend list</a></p>
-  <p tccLogoutHellojs="google"
+  <p ngxLogoutHellojs="google"
      (successEvent)="logoutSuccessfullyAction($event)"
      (errorEvent)="logoutFailedAction($event)">Logout</p>
 </fieldset>

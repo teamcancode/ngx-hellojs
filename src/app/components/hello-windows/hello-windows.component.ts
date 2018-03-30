@@ -3,7 +3,7 @@ import { NgxHellojsService } from '../../shared/services/ngx-hellojs.service';
 import { BaseHelloComponent } from '../base/base-hello.component';
 
 @Component({
-  selector: 'tcc-hello-windows',
+  selector: 'ngx-hello-windows',
   templateUrl: './hello-windows.component.html',
   styleUrls: ['./hello-windows.component.scss']
 })

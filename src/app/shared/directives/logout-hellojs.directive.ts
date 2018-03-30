@@ -4,11 +4,11 @@ import { NgxHellojsErrorEntity } from '../entities/ngx-hellojs-error.entity';
 import { NgxHellojsService } from '../services/ngx-hellojs.service';
 
 @Directive({
-  selector: '[tccLogoutHellojs]'
+  selector: '[ngxLogoutHellojs]'
 })
 export class LogoutHellojsDirective {
 
-  @Input() tccLogoutHellojs: string;
+  @Input() ngxLogoutHellojs: string;
   @Input() configs: {};
 
   @Output() successEvent: EventEmitter<NgxHellojsResponseEntity> = new EventEmitter<NgxHellojsResponseEntity>();
@@ -18,7 +18,7 @@ export class LogoutHellojsDirective {
   }
 
   @HostListener('click') onClick() {
-    this._ngxZaloService.logout(this.tccLogoutHellojs, this.configs)
+    this._ngxZaloService.logout(this.ngxLogoutHellojs, this.configs)
         .subscribe((response: NgxHellojsResponseEntity) => {
           this.successEvent.emit(response);
         }, (error: NgxHellojsErrorEntity) => {

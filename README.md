@@ -1,4 +1,4 @@
-# TCC Ng5 Hellojs
+# Ngx Hellojs
 
 This module is used for [Angular 5](https://angular.io/).  
 This module help you to use [hellojs library](https://adodson.com/hello.js) as service.
@@ -68,7 +68,7 @@ constructor(private _ngxHellojsService: NgxHellojsService) {
 ### Login
 ```html
 <!-- Using directive -->
-<p tccLoginHellojs="facebook"
+<p ngxLoginHellojs="facebook"
    (successEvent)="loginSuccessfullyAction($event)"
    (errorEvent)="loginFailedAction($event)">Login facebook</p>
 ```
@@ -86,7 +86,7 @@ this._ngxHellojsService
 ### Logout
 ```html
 <!-- Using directive -->
-<p tccLogoutHellojs="facebook"
+<p ngxLogoutHellojs="facebook"
    (successEvent)="logoutSuccessfullyAction($event)"
    (errorEvent)="logoutFailedAction($event)">Logout</p>
 ```

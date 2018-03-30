@@ -1,11 +1,11 @@
 <fieldset>
   <legend>Windows:</legend>
-  <p tccLoginHellojs="windows"
+  <p ngxLoginHellojs="windows"
      (successEvent)="loginSuccessfullyAction($event)"
      (errorEvent)="loginFailedAction($event)">Login windows</p>
   <p><a (click)="getAuthResponse()">Auth Response</a></p>
   <p><a (click)="getMyInfo()">My info</a></p>
-  <p tccLogoutHellojs="windows"
+  <p ngxLogoutHellojs="windows"
      (successEvent)="logoutSuccessfullyAction($event)"
      (errorEvent)="logoutFailedAction($event)">Logout</p>
 </fieldset>

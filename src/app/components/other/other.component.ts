@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgxHellojsService } from '../../shared/services/ngx-hellojs.service';
 
 @Component({
-  selector: 'tcc-other',
+  selector: 'ngx-other',
   templateUrl: './other.component.html',
   styleUrls: ['./other.component.scss']
 })
