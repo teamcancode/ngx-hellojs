@@ -80,7 +80,7 @@ this._ngxHellojsService
  
 //same with:
 //hello('facebook').login({scope: 'friends, photos, publish'})
-                   .then(function(data) {}, function(error) {});
+//                 .then(function(data) {}, function(error) {});
 ```
 
 ### Logout
@@ -97,7 +97,7 @@ this._ngxHellojsService.logout('facebook')
  
 //same with:
 //hello('facebook').logout()
-                   .then(function(data) {}, function(error) {});
+//                 .then(function(data) {}, function(error) {});
 ```
 
 ### Get auth response
