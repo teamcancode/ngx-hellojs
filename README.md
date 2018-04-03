@@ -34,7 +34,18 @@ Edit .angular-cli.json
 Edit in `src/app/app.module.ts`:
 ```typescript
 //...
-import { NgxHellojsModule } from 'ngx-hellojs';
+import { NgxHellojsModule, NgxHellojsService } from 'ngx-hellojs';
+
+const helloJSCredentials = {
+  facebook: environment.credentials.facebook,
+  google: environment.credentials.google,
+  windows: environment.credentials.windows,
+  twitter: environment.credentials.twitter,
+};
+
+const helloJsOptions = {
+  scope: ['friends', 'email']
+};
 
 @NgModule({
   //...
@@ -51,16 +62,20 @@ import { NgxHellojsModule } from 'ngx-hellojs';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(ngxHellojsService: NgxHellojsService) {
+    ngxHellojsService.init(helloJSCredentials, helloJsOptions);
+  }
+
+}
 
 //same with:
-//hello.init({facebook: '<your-app-id>'}, {scope: 'friends, photos, publish'});
+//hello.init({facebook: '<your-app-id>'}, {scope: 'friends, email'});
 ```
 
 And call in component:
 ```typescript
-import { NgxHellojsService } from 'ngx-zalo/dist/app/shared/services/ngx-hellojs.service';
-
 constructor(private _ngxHellojsService: NgxHellojsService) {
 }
 ```

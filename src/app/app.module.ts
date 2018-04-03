@@ -8,6 +8,18 @@ import { HelloGoogleComponent } from './components/hello-google/hello-google.com
 import { OtherComponent } from './components/other/other.component';
 import { HelloWindowsComponent } from './components/hello-windows/hello-windows.component';
 import { HelloTwitterComponent } from './components/hello-twitter/hello-twitter.component';
+import { NgxHellojsService } from './shared/services/ngx-hellojs.service';
+
+const helloJSCredentials = {
+  facebook: environment.credentials.facebook,
+  google: environment.credentials.google,
+  windows: environment.credentials.windows,
+  twitter: environment.credentials.twitter,
+};
+
+const helloJsOptions = {
+  scope: ['friends', 'email']
+};
 
 @NgModule({
   declarations: [
@@ -20,17 +32,15 @@ import { HelloTwitterComponent } from './components/hello-twitter/hello-twitter.
   ],
   imports: [
     BrowserModule,
-    NgxHellojsModule.forRoot({
-      facebook: environment.credentials.facebook,
-      google: environment.credentials.google,
-      windows: environment.credentials.windows,
-      twitter: environment.credentials.twitter,
-    }, {
-      scope: ['friends', 'email']
-    }),
+    NgxHellojsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
+  constructor(ngxHellojsService: NgxHellojsService) {
+    ngxHellojsService.init(helloJSCredentials, helloJsOptions);
+  }
+
 }

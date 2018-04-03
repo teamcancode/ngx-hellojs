@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { NgxHellojsResponseEntity } from '../entities/ngx-hellojs-response.entity';
 import { NgxHellojsErrorEntity } from '../entities/ngx-hellojs-error.entity';
@@ -7,13 +7,6 @@ declare const hello;
 
 @Injectable()
 export class NgxHellojsService {
-
-  constructor(
-    @Inject('hellojsCredentials') private _credentials: {},
-    @Inject('hellojsOptions') private _options: {}
-  ) {
-    this.init(this._credentials, this._options);
-  }
 
   // noinspection JSMethodCanBeStatic
   init(credentials: {}, options?: {}) {

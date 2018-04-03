@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "whitelistedNonPeerDependencies": [
+    "hellojs"
+  ],
+  "ngPackage": {
+    "lib": {
+      "entryFile": "public_api.ts"
+    }
+  }
+}
